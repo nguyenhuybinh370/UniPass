@@ -18,6 +18,7 @@ export default {
           700: '#9C3B00', // Active
           800: '#7C3005',
           900: '#652907',
+          primary: '#D9531E', // SinhVienPass brand orange
         },
         secondary: {
           50: '#E8F5E9',
@@ -34,9 +35,11 @@ export default {
         },
         canvas: '#FAF6F0', // Kem mộc hạn chế mỏi mắt
         surface: {
+          canvas: '#FAF6F0',
           card: '#FFFFFF',
           muted: '#F3E9DD',
           accent: '#FDF3E1',
+          announcement: '#FAF8F5',
         },
         text: {
           primary: '#2D241E',   // Nâu đen ấm
@@ -45,6 +48,8 @@ export default {
         },
         border: {
           subtle: '#E6DACD',    // Subtle border
+          card: '#EBE3D8',      // Card border
+          divider: '#F3F4F6',   // Divider
         },
         semantic: {
           success: '#1E824C',

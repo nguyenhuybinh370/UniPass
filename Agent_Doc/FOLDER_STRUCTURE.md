@@ -100,6 +100,16 @@ unipass-frontend/
 │   │   ├── usePagination.ts              # Tính toán trang hiện tại, tổng trang, lát cắt dữ liệu
 │   │   └── useClickOutside.ts            # Đóng modal/dropdown khi người dùng click ra ngoài
 │   │
+│   ├── pages/                            # TẦNG GIAO DIỆN THEO ROUTE (Thin Page Assemblers)
+│   │   ├── Home/                         # Trang chủ (Lắp ráp các section)
+│   │   │   ├── index.tsx                 # Màn hình chính route '/'
+│   │   │   └── components/               # Sub-components đặc thù của Home (HeroBanner, QuickAccess...)
+│   │   ├── PostDetail/index.tsx          # Màn hình chi tiết bài đăng '/posts/:id'
+│   │   ├── CreatePost/index.tsx          # Màn hình tạo bài đăng '/posts/create'
+│   │   ├── MyOffers/index.tsx            # Màn hình đề xuất đổi đồ '/my-offers'
+│   │   ├── Auth/                         # Màn hình đăng nhập, đăng ký
+│   │   └── NotFound/index.tsx            # Màn hình 404
+│   │
 │   ├── features/                         # CÁC MODULE NGHIỆP VỤ ĐỘC LẬP (Feature-Sliced Modules)
 │   │   │
 │   │   ├── auth/                         # Nghiệp vụ Xác thực tài khoản sinh viên
@@ -232,8 +242,12 @@ Mỗi nghiệp vụ cốt lõi của UniPass được đóng gói trọn gói tr
 - **`api/`:** Hàm gọi API thuần túy của tính năng.
 - **`hooks/`:** Toàn bộ Query Key Factory, `useQuery` và `useMutation` của tính năng.
 - **`components/`:** Các component giao diện chỉ phục vụ riêng cho tính năng đó.
-- **`pages/`:** Các trang router hoàn chỉnh.
 - **`types/index.ts`:** Định nghĩa TypeScript Interface và DTOs riêng của tính năng.
+
+### 2.10. Tầng `src/pages/` (Thin Page Assemblers & Route Mapping)
+- **Nhiệm vụ:** Màn hình hoàn chỉnh gắn liền với từng đường dẫn (Route) trong `src/routes/AppRoutes.tsx`.
+- **Cấu trúc:** Mỗi trang là một folder riêng nếu cần tách sub-components chỉ thuộc riêng trang đó (`pages/Home/`, `pages/PostDetail/`, `pages/CreatePost/`, `pages/MyOffers/`, `pages/Auth/`, `pages/NotFound/`).
+- **Nhiệm vụ chính:** Đóng vai trò bộ lắp ráp mỏng (Thin Controller/Assembler): nhận URL params (`useParams`), gọi Custom Query Hooks từ `features/`, lắp ráp UI Components từ `features/` và `components/ui/`, hiển thị Skeleton khi Loading và EmptyState khi không có dữ liệu. Không viết API call hay logic state phức tạp trực tiếp tại Page.
 
 ---
 

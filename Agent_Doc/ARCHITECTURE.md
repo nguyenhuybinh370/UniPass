@@ -77,7 +77,7 @@ Hệ thống được chia thành 5 tầng độc lập, tuân thủ nguyên t�
   - `AuthLayout`: 2 cột (1 cột banner sinh viên trao đổi đồ, 1 cột form).
   - `AdminLayout`: Sidebar quản trị (Duyệt tin, Tố cáo, Người dùng), Admin Header.
 - **Feature Components (`src/features/*/components/`):** Chứa các component nghiệp vụ đặc thù (VD: `PostCard`, `PostFilterSidebar`, `OfferCard`, `ChatWindow`, `DemandChart`).
-- **Pages (`src/features/*/pages/`):** Điểm tiếp nhận của Router, có nhiệm vụ lắp ráp các Feature Components và truyền params từ URL.
+- **Route Pages (`src/pages/`):** Điểm tiếp nhận của Router (Thin Page Assemblers), tương ứng 1:1 với URL Route, có nhiệm vụ lắp ráp các Feature Components, nhận URL params và xử lý trạng thái Loading/Error.
 
 ### 2.2. State Management Layer (Tầng Trạng thái)
 Kiến trúc tách bạch 100% giữa **Server State** và **Client State**:

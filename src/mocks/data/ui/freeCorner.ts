@@ -1,0 +1,65 @@
+import { ProductItem } from '@/types/ui/freeCorner';
+
+export const freeCornerItems: ProductItem[] = [
+  {
+    id: 'free-1',
+    title: 'Giáo trình Giải tích 1 & Tuyển tập bài tập ĐHQG kèm ghi chú',
+    subjectCode: 'MA001',
+    price: 0,
+    originalPrice: 120000,
+    conditionTag: 'Mới 85%',
+    location: 'KTX Khu A',
+    category: 'Giáo trình',
+    imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80',
+    seller: {
+      name: 'Minh Tuấn',
+      school: 'UIT',
+      rating: 4.9,
+    },
+  },
+  {
+    id: 'free-2',
+    title: 'Bộ Thước Kẻ Kỹ Thuật & Thước Chữ T vẽ đồ án Kiến trúc / Cơ khí',
+    price: 0,
+    originalPrice: 150000,
+    conditionTag: 'Mới 90%',
+    location: 'KTX Khu B',
+    category: 'Dụng cụ',
+    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80',
+    seller: {
+      name: 'Hoàng Nam',
+      school: 'Bách Khoa',
+      rating: 4.8,
+    },
+  },
+  {
+    id: 'free-3',
+    title: 'Đèn bàn học LED chống cận 3 chế độ cắm cổng USB cho phòng KTX',
+    price: 0,
+    originalPrice: 135000,
+    conditionTag: 'Mới 85%',
+    location: 'KTX Khu A',
+    category: 'Đồ dùng KTX',
+    imageUrl: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80',
+    seller: {
+      name: 'Thảo My',
+      school: 'KHXH&NV',
+      rating: 5.0,
+    },
+  },
+  {
+    id: 'free-4',
+    title: 'Kệ sách mini để bàn gỗ ép 2 tầng tháo lắp tiện lợi cho bàn học',
+    price: 0,
+    originalPrice: 95000,
+    conditionTag: 'Mới 90%',
+    location: 'KTX Khu B',
+    category: 'Đồ dùng KTX',
+    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80',
+    seller: {
+      name: 'Đức Huy',
+      school: 'Kinh Tế Luật',
+      rating: 4.9,
+    },
+  },
+];

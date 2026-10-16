@@ -1,0 +1,138 @@
+import { QuickAccessItem } from '@/types/ui/quickAccess';
+
+/**
+ * System design color tokens for QuickAccess cards
+ */
+export const quickAccessColorPalette = {
+  freeCorner: {
+    bgClass: 'bg-[#FEF2F2]',
+    colorClass: 'text-[#EF4444]',
+    hexBg: '#FEF2F2',
+    hexColor: '#EF4444',
+  },
+  barter: {
+    bgClass: 'bg-[#F0FDFA]',
+    colorClass: 'text-[#0D9488]',
+    hexBg: '#F0FDFA',
+    hexColor: '#0D9488',
+  },
+  courseCode: {
+    bgClass: 'bg-[#EFF6FF]',
+    colorClass: 'text-[#2563EB]',
+    hexBg: '#EFF6FF',
+    hexColor: '#2563EB',
+  },
+  urgentPass: {
+    bgClass: 'bg-[#FFF7ED]',
+    colorClass: 'text-[#EA580C]',
+    hexBg: '#FFF7ED',
+    hexColor: '#EA580C',
+  },
+  casioCalc: {
+    bgClass: 'bg-[#FAF5FF]',
+    colorClass: 'text-[#9333EA]',
+    hexBg: '#FAF5FF',
+    hexColor: '#9333EA',
+  },
+  practiceKit: {
+    bgClass: 'bg-[#ECFDF5]',
+    colorClass: 'text-[#059669]',
+    hexBg: '#ECFDF5',
+    hexColor: '#059669',
+  },
+  dormLobby: {
+    bgClass: 'bg-[#FFFBEB]',
+    colorClass: 'text-[#D97706]',
+    hexBg: '#FFFBEB',
+    hexColor: '#D97706',
+  },
+  topReputation: {
+    bgClass: 'bg-[#FEFCE8]',
+    colorClass: 'text-[#CA8A04]',
+    hexBg: '#FEFCE8',
+    hexColor: '#CA8A04',
+  },
+} as const;
+
+export const quickAccessItems: QuickAccessItem[] = [
+  {
+    id: 'qa-1',
+    title: 'Góc Tặng 0đ',
+    subtitle: 'Miễn phí',
+    icon: 'gift',
+    iconBgColor: quickAccessColorPalette.freeCorner.hexBg,
+    iconColor: quickAccessColorPalette.freeCorner.hexColor,
+    bgClass: quickAccessColorPalette.freeCorner.bgClass,
+    colorClass: quickAccessColorPalette.freeCorner.colorClass,
+  },
+  {
+    id: 'qa-2',
+    title: 'Đổi Ngang Đồ',
+    subtitle: 'Không tiền mặt',
+    icon: 'repeat',
+    iconBgColor: quickAccessColorPalette.barter.hexBg,
+    iconColor: quickAccessColorPalette.barter.hexColor,
+    bgClass: quickAccessColorPalette.barter.bgClass,
+    colorClass: quickAccessColorPalette.barter.colorClass,
+  },
+  {
+    id: 'qa-3',
+    title: 'Tra cứu Mã Môn',
+    subtitle: 'IT, MA, CS, PH',
+    icon: 'file-text',
+    iconBgColor: quickAccessColorPalette.courseCode.hexBg,
+    iconColor: quickAccessColorPalette.courseCode.hexColor,
+    bgClass: quickAccessColorPalette.courseCode.bgClass,
+    colorClass: quickAccessColorPalette.courseCode.colorClass,
+  },
+  {
+    id: 'qa-4',
+    title: 'Pass Gấp 24h',
+    subtitle: 'Giá siêu rẻ',
+    icon: 'zap',
+    iconBgColor: quickAccessColorPalette.urgentPass.hexBg,
+    iconColor: quickAccessColorPalette.urgentPass.hexColor,
+    bgClass: quickAccessColorPalette.urgentPass.bgClass,
+    colorClass: quickAccessColorPalette.urgentPass.colorClass,
+  },
+  {
+    id: 'qa-5',
+    title: 'Máy Tính Casio',
+    subtitle: 'Test trực tiếp',
+    icon: 'calculator',
+    iconBgColor: quickAccessColorPalette.casioCalc.hexBg,
+    iconColor: quickAccessColorPalette.casioCalc.hexColor,
+    bgClass: quickAccessColorPalette.casioCalc.bgClass,
+    colorClass: quickAccessColorPalette.casioCalc.colorClass,
+  },
+  {
+    id: 'qa-6',
+    title: 'Kit Thực Hành',
+    subtitle: 'Arduino, STM',
+    icon: 'cpu',
+    iconBgColor: quickAccessColorPalette.practiceKit.hexBg,
+    iconColor: quickAccessColorPalette.practiceKit.hexColor,
+    bgClass: quickAccessColorPalette.practiceKit.bgClass,
+    colorClass: quickAccessColorPalette.practiceKit.colorClass,
+  },
+  {
+    id: 'qa-7',
+    title: 'Sảnh KTX A & B',
+    subtitle: 'Giao tận sảnh',
+    icon: 'building-2',
+    iconBgColor: quickAccessColorPalette.dormLobby.hexBg,
+    iconColor: quickAccessColorPalette.dormLobby.hexColor,
+    bgClass: quickAccessColorPalette.dormLobby.bgClass,
+    colorClass: quickAccessColorPalette.dormLobby.colorClass,
+  },
+  {
+    id: 'qa-8',
+    title: 'Bảng Vàng Uy Tín',
+    subtitle: 'Top thành viên',
+    icon: 'trophy',
+    iconBgColor: quickAccessColorPalette.topReputation.hexBg,
+    iconColor: quickAccessColorPalette.topReputation.hexColor,
+    bgClass: quickAccessColorPalette.topReputation.bgClass,
+    colorClass: quickAccessColorPalette.topReputation.colorClass,
+  },
+];

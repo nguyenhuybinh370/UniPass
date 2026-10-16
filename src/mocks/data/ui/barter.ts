@@ -1,0 +1,48 @@
+import { BarterItem } from '@/types/ui/barter';
+
+export const barterItems: BarterItem[] = [
+  {
+    id: 'barter-1',
+    title: 'Giáo trình Cấu trúc Dữ liệu & Giải thuật (bản chuẩn khoa KHMT)',
+    conditionTag: 'Mới 90% (Có note)',
+    neededItemDescription: 'Giáo trình Hệ điều hành HOẶC Chuột máy tính có dây Logitech.',
+    sellerName: 'Phương Thảo',
+    sellerSchool: 'KHTN',
+    sellerRating: 5.0,
+    location: 'KTX Khu B',
+    imageUrl: 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 'barter-2',
+    title: 'Bảng vẽ điện tử Huion H420X kèm bút vẽ cảm ứng và ngòi thay thế',
+    conditionTag: 'Mới 95% (Fullbox)',
+    neededItemDescription: 'Máy tính Casio fx-580VN X còn phím rõ và pin tốt.',
+    sellerName: 'Bảo Long',
+    sellerSchool: 'UIT',
+    sellerRating: 4.9,
+    location: 'KTX Khu A',
+    imageUrl: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 'barter-3',
+    title: 'Kit vi điều khiển Arduino Uno R3 kèm Shield cảm biến & Dây cắm',
+    conditionTag: 'Mới 92% (Đã test)',
+    neededItemDescription: 'Giáo trình Mạng máy tính hoặc Cáp chuyển USB Type-C sang HDMI.',
+    sellerName: 'Văn Toàn',
+    sellerSchool: 'Bách Khoa',
+    sellerRating: 4.8,
+    location: 'Sảnh A4 BK',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 'barter-4',
+    title: 'Áo khoác thể dục đồng phục ĐHQG TP.HCM size M (Nam/Nữ mặc đẹp)',
+    conditionTag: 'Mới 98% (Mặc 1 lần)',
+    neededItemDescription: 'Đổi sang size L tương đương HOẶC Giáo trình Pháp luật đại cương.',
+    sellerName: 'Thanh Hằng',
+    sellerSchool: 'Kinh Tế Luật',
+    sellerRating: 5.0,
+    location: 'KTX Khu B',
+    imageUrl: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80',
+  },
+];

@@ -1,0 +1,28 @@
+export const ROUTES = {
+  HOME: '/',
+  POSTS: {
+    LIST: '/posts',
+    DETAIL: (id: string | number = ':id') => `/posts/${id}`,
+    CREATE: '/posts/create',
+    EDIT: (id: string | number = ':id') => `/posts/${id}/edit`,
+  },
+  OFFERS: {
+    MY_OFFERS: '/my-offers',
+  },
+  CHAT: '/chat',
+  PROFILE: {
+    ME: '/profile/me',
+    USER: (userId: string | number = ':userId') => `/profile/${userId}`,
+  },
+  AUTH: {
+    LOGIN: '/auth/login',
+    REGISTER: '/auth/register',
+    FORGOT_PASSWORD: '/auth/forgot-password',
+  },
+  ADMIN: {
+    DASHBOARD: '/admin/dashboard',
+    POSTS: '/admin/posts',
+    REPORTS: '/admin/reports',
+    USERS: '/admin/users',
+  },
+} as const;
