@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   BookOpen,
   Search,
@@ -24,12 +24,23 @@ export interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onSearch, onPostClick }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, isAuthenticated, login, logout } = useAuth();
   const { showToast } = useToast();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>(defaultCategories[0]?.label || '');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  // Tự động mở LoginModal khi chuyển hướng từ Register hoặc có query param ?login=true
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const stateObj = location.state as { openLogin?: boolean } | null;
+    if (stateObj?.openLogin || searchParams.get('login') === 'true') {
+      setIsLoginModalOpen(true);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, [location]);
 
   const handleOpenLogin = () => {
     setIsLoginModalOpen(true);
@@ -261,6 +272,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, onPostClick }) => {
         isOpen={isLoginModalOpen}
         onClose={() => setIsLoginModalOpen(false)}
         onLoginSuccess={handleLoginModalSuccess}
+        onSwitchToRegister={() => {
+          setIsLoginModalOpen(false);
+          navigate(ROUTES.AUTH.REGISTER);
+        }}
+        onForgotPassword={() => {
+          setIsLoginModalOpen(false);
+          navigate(ROUTES.AUTH.FORGOT_PASSWORD);
+        }}
       />
     </header>
   );

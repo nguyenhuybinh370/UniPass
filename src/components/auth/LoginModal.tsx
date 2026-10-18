@@ -233,8 +233,10 @@ export const LoginModal: React.FC<LoginModalProps> = ({
 
         {/* Divider: "hoặc đăng nhập với" */}
         <div className="relative my-6 flex items-center justify-center">
-          <div className="w-full border-t border-[#EBE3D8]" />
-          <span className="relative bg-white px-3 text-[12px] text-[#9E928A] font-medium">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-[#EBE3D8]" />
+          </div>
+          <span className="relative z-10 bg-white px-3 text-[12px] text-[#9E928A] font-medium whitespace-nowrap">
             hoặc đăng nhập với
           </span>
         </div>
