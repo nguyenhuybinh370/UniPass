@@ -45,3 +45,8 @@ Mọi quyết định thiết kế kiến trúc, đặt tên file, chia tách th
    - `AdminLayout`: Layout cho trang quản trị.
 4. **App.tsx chỉ là Root Provider:**
    - `App.tsx` chỉ bọc `QueryClientProvider`, `BrowserRouter`, `AuthProvider`, `ToastProvider` và render `<AppRoutes />`. Tuyệt đối không nhồi nhét giao diện hay `useState` cục bộ vào `App.tsx`.
+5. **Phong cách Centralized Types (Đặc tả kiểu tập trung — Chuẩn UniPass):**
+   - **TUYỆT ĐỐI CẤM:** Không khai báo `interface` hoặc `type` (kể cả Component Props `[ComponentName]Props`) trực tiếp bên trong các file giao diện (`.tsx`).
+   - **BẮT BUỘC:** 100% Component Props, Data Models, DTOs, Payload phải được định nghĩa tập trung trong thư mục `types/`:
+     - **UI Dùng chung (`src/components/ui/`, `src/components/feedback/`, `src/components/form/`):** Khai báo Props trong `src/types/` (VD: `src/types/feedback.ts`, `src/types/ui/`, `src/types/form.ts`...) và re-export tại `src/types/index.ts`. Trong file component `.tsx` chỉ nhận kiểu qua `import { [ComponentName]Props } from '@/types';`.
+     - **Feature Components (`src/features/<feature>/components/`):** Khai báo Props trong `src/features/<feature>/types/` (VD: `src/features/posts/types/manageComponents.ts`, `src/features/offers/types/offerComponents.ts`...) và re-export tại `src/features/<feature>/types/index.ts`. Trong file component `.tsx` chỉ nhận kiểu qua `import { [ComponentName]Props } from '../../types';`.

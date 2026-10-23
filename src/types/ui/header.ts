@@ -1,3 +1,5 @@
+import { UserProfile } from '@/features/profile/types';
+
 export interface HeaderCategory {
   id: string;
   label: string;
@@ -29,3 +31,12 @@ export interface HeaderProps {
   onLoginClick?: () => void;
   onLoginSuccess?: (user: HeaderUser) => void;
 }
+
+export interface AccountDropdownProps {
+  user: UserProfile;
+  onNavigate: (route: string) => void;
+  onLogout: () => void;
+  className?: string;
+}
+
+export type UserMenuDropdownProps = AccountDropdownProps;

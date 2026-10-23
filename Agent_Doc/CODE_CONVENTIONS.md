@@ -85,6 +85,13 @@ import { Post, ItemCondition } from '../types';
    export type PostStatus = typeof POST_STATUS[keyof typeof POST_STATUS];
    ```
 
+4. **Phong cách Centralized Types (Đặc tả kiểu tập trung — Chuẩn UniPass):**
+   - **CẤM:** Tuyệt đối không khai báo `interface` hoặc `type` trực tiếp trong file `.tsx` (kể cả `[ComponentName]Props`).
+   - **BẮT BUỘC:** Đặt tất cả Props trong thư mục `types/`:
+     - Global/Shared components (`components/ui`, `components/feedback`, `components/form`): Khai báo trong `src/types/` và re-export tại `src/types/index.ts`.
+     - Feature components (`features/<feature>/components`): Khai báo trong `src/features/<feature>/types/` và re-export tại `src/features/<feature>/types/index.ts`.
+   - File component `.tsx` chỉ import Props type: `import { PostCardProps } from '../types';`.
+
 ---
 
 ## 4. QUY CHUẨN VIẾT COMPONENT (REACT STANDARDS)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   BookOpen,
@@ -8,7 +8,6 @@ import {
   Plus,
   Sprout,
   LogIn,
-  LogOut,
 } from 'lucide-react';
 import { HeaderUser } from '@/types/ui/header';
 import { headerCategories as defaultCategories } from '@/mocks/data/ui/header';
@@ -16,6 +15,8 @@ import { LoginModal } from '@/components/auth';
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/components/feedback/Toast';
 import { ROUTES } from '@/constants/routes';
+import { UserProfile } from '@/features/profile/types';
+import { UserMenuDropdown } from './UserMenuDropdown';
 
 export interface NavbarProps {
   onSearch?: (query: string) => void;
@@ -71,6 +72,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, onPostClick }) => {
       message: 'Đã đăng xuất tài khoản.',
     });
   };
+
+  const userProfile: UserProfile | null = useMemo(() => {
+    if (!user) return null;
+    return {
+      fullName: user.name,
+      email: user.email,
+      campusLocation: user.school ? `KTX Khu B, ${user.school}` : 'KTX Khu B, ĐHQG',
+      isVerifiedStudent: true,
+      stats: {
+        activePostsCount: 3,
+        giftedCount: 1,
+        reputationScore: user.reputationRating ? Math.round((user.reputationRating / 5) * 100) : 100,
+      },
+    };
+  }, [user]);
 
   const handlePostClickAction = () => {
     if (!isAuthenticated) {
@@ -183,32 +199,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, onPostClick }) => {
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-500 ring-2 ring-white" />
             </button>
 
-            {/* User Chip hoặc Nút Đăng nhập */}
-            {user ? (
-              <div className="flex items-center gap-2">
-                <Link
-                  to={ROUTES.PROFILE.ME}
-                  className="hidden sm:flex items-center gap-2 rounded-pill bg-surface-announcement border border-border-card px-2.5 py-1 hover:border-brand-primary transition-colors"
-                >
-                  <div className="w-6 h-6 rounded-full bg-brand-primary text-white flex items-center justify-center text-xs font-bold shadow-warm-xs">
-                    {user.avatarInitial}
-                  </div>
-                  <span className="text-xs font-semibold text-text-primary">
-                    {user.name} ({user.school})
-                  </span>
-                  <span className="text-[11px] font-medium text-text-muted bg-surface-card px-2 py-0.5 rounded-pill border border-border-card">
-                    ⭐ {user.reputationRating.toFixed(1)}
-                  </span>
-                </Link>
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  title="Đăng xuất"
-                  className="p-2 text-text-muted hover:text-rose-600 hover:bg-rose-50 rounded-full transition-colors cursor-pointer"
-                >
-                  <LogOut className="w-4 h-4" />
-                </button>
-              </div>
+            {/* User Dropdown hoặc Nút Đăng nhập */}
+            {userProfile ? (
+              <UserMenuDropdown
+                user={userProfile}
+                onNavigate={(route) => {
+                  if (route.startsWith('#')) {
+                    const el = document.querySelector(route);
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    navigate(route);
+                  }
+                }}
+                onLogout={handleLogout}
+              />
             ) : (
               <button
                 type="button"

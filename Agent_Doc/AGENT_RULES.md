@@ -53,6 +53,12 @@ Nhiệm vụ của bạn là hiện thực hóa giao diện, logic nghiệp vụ
 6. **Không hardcode chuỗi hằng số:**
    - Sử dụng các file trong `src/constants/` (`routes.ts`, `post.ts`, `offer.ts`, `roles.ts`, `storage.ts`).
 
+7. **Phong cách Centralized Types (Đặc tả kiểu tập trung — Chuẩn UniPass):**
+   - **TUYỆT ĐỐI CẤM:** Không khai báo `interface` hoặc `type` (kể cả Component Props `[ComponentName]Props`) trực tiếp bên trong các file giao diện (`.tsx`).
+   - **BẮT BUỘC:** 100% Component Props, Data Models, DTOs, Payload phải được định nghĩa tập trung trong thư mục `types/`:
+     - **UI Dùng chung (`src/components/ui/`, `src/components/feedback/`, `src/components/form/`):** Khai báo Props trong `src/types/` (VD: `src/types/feedback.ts`, `src/types/ui/`, `src/types/form.ts`...) và re-export tại `src/types/index.ts`. Trong file component `.tsx` chỉ nhận kiểu qua `import { [ComponentName]Props } from '@/types';`.
+     - **Feature Components (`src/features/<feature>/components/`):** Khai báo Props trong `src/features/<feature>/types/` (VD: `src/features/posts/types/manageComponents.ts`...) và re-export tại `src/features/<feature>/types/index.ts`. Trong file component `.tsx` chỉ nhận kiểu qua `import { [ComponentName]Props } from '../../types';`.
+
 ---
 
 ## 📋 MẪU CHECKLIST TRƯỚC KHI XUẤT CODE CHO USER
@@ -60,6 +66,7 @@ Trước khi trả lời hoặc tạo file code cho người dùng, hãy tự r�
 - [ ] File mới có nằm đúng vị trí trong cây thư mục dự án UniPass đã định nghĩa không?
 - [ ] Đã import đúng path alias `@/...` thay vì relative path dài dòng `../../..` chưa?
 - [ ] Có bị lỗi thiếu Type hoặc dính `any` không?
+- [ ] **Có khai báo interface/type inline trong file `.tsx` không? (Bắt buộc phải tách ra thư mục `types/`).**
 - [ ] Giao diện có đủ các trạng thái: **Loading (Skeleton/Spinner)**, **Empty (EmptyState)**, và **Error** không?
 - [ ] Nút bấm submit có hiển thị loading state (`disabled` + icon quay) khi `isPending` không?
 - [ ] Có hiển thị Toast feedback sau khi Mutation thành công hoặc thất bại không?

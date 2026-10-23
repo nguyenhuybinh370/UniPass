@@ -4,6 +4,8 @@ import { MainLayout } from '@/layouts/MainLayout';
 import { ROUTES } from '@/constants/routes';
 import { Spinner } from '@/components/ui/Spinner';
 
+import { ProtectedRoute } from '@/routes/ProtectedRoute';
+
 // Lazy loading pages
 const HomePage = lazy(() => import('@/pages/Home'));
 const RegisterPage = lazy(() => import('@/pages/Auth/Register'));
@@ -11,6 +13,8 @@ const LoginPage = lazy(() => import('@/pages/Auth/Login'));
 const VerifyOtpPage = lazy(() => import('@/pages/Auth/VerifyOtp'));
 const ForgotPasswordPage = lazy(() => import('@/pages/Auth/ForgotPassword'));
 const ResetPasswordPage = lazy(() => import('@/pages/Auth/ResetPassword'));
+const ProfilePage = lazy(() => import('@/pages/Profile'));
+const MyPostDetailPage = lazy(() => import('@/pages/MyPostDetail'));
 const NotFoundPage = lazy(() => import('@/pages/NotFound'));
 
 const PageLoader: React.FC = () => (
@@ -38,6 +42,26 @@ export const AppRoutes: React.FC = () => {
         {/* MainLayout Routes */}
         <Route element={<MainLayout />}>
           <Route path={ROUTES.HOME} element={<HomePage />} />
+          <Route path={ROUTES.PROFILE.ME} element={<ProfilePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/overview" element={<ProfilePage />} />
+          <Route path="/profile/security" element={<ProfilePage />} />
+          <Route
+            path={ROUTES.PROFILE.MY_POST_DETAIL()}
+            element={
+              <ProtectedRoute>
+                <MyPostDetailPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile/my-posts/:id"
+            element={
+              <ProtectedRoute>
+                <MyPostDetailPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

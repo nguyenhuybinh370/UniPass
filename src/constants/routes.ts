@@ -13,6 +13,8 @@ export const ROUTES = {
   PROFILE: {
     ME: '/profile/me',
     USER: (userId: string | number = ':userId') => `/profile/${userId}`,
+    MY_POSTS: '/profile/my-posts',
+    MY_POST_DETAIL: (id: string | number = ':id') => `/profile/my-posts/${id}`,
   },
   AUTH: {
     LOGIN: '/auth/login',
