@@ -1,3 +1,7 @@
+﻿---
+trigger: always
+description: "Quy tắc cốt lõi, kỷ luật lập trình và vai trò Lead Frontend của AI Agent cho dự án UniPass."
+---
 # UNIPASS FRONTEND — AGENT SYSTEM RULES & WORKFLOW SPECIFICATION
 > **Mục tiêu:** File quy tắc hệ thống (Agent Rules / Skill Definition) dùng để nạp vào AI Agent (Cursor, Antigravity, Claude, ChatGPT, Windsurf, Copilot) nhằm tự động kiểm soát chất lượng code, kiến trúc thư mục và hành vi lập trình cho dự án **UniPass**.
 
@@ -70,3 +74,4 @@ Trước khi trả lời hoặc tạo file code cho người dùng, hãy tự r�
 - [ ] Giao diện có đủ các trạng thái: **Loading (Skeleton/Spinner)**, **Empty (EmptyState)**, và **Error** không?
 - [ ] Nút bấm submit có hiển thị loading state (`disabled` + icon quay) khi `isPending` không?
 - [ ] Có hiển thị Toast feedback sau khi Mutation thành công hoặc thất bại không?
+

@@ -1,3 +1,7 @@
+﻿---
+trigger: model_decision
+description: "Quy chuẩn viết code: Naming conventions, import order, TypeScript strict, cấu trúc React component, Tailwind CSS."
+---
 # UNIPASS FRONTEND — QUY CHUẨN VIẾT CODE (CODE CONVENTIONS)
 > **Hệ thống:** UniPass  
 > **Tiêu chí:** Tối giản – Chuẩn mực – Nhất quán – Dễ dàng áp dụng qua Prompt cho AI & Developer.
@@ -201,3 +205,4 @@ export const PostCard: React.FC<PostCardProps> = ({ post, onSelect, className = 
 | Gắn `disabled={isPending}` và loading spinner cho nút bấm | Để người dùng click nút submit liên tục nhiều lần |
 | Dùng Toast để thông báo kết quả | Dùng `window.alert()` hoặc `console.log()` bỏ quên |
 | Validate email sinh viên `.edu.vn` bằng regex chuẩn | Để lọt email cá nhân tùy tiện vào luồng sinh viên |
+
